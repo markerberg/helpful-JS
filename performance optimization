@@ -1,0 +1,5 @@
+// appending event handlers to multiple child items that may be injected at any state of the DOM? use EVENT DELEGATION
+https://javascript.info/event-delegation
+
+// use a type specific method on a non-type. Also good for polyfills
+https://gomakethings.com/what-the-hell-is-the-call-method-and-when-should-you-use-it/
