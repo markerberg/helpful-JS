@@ -3,7 +3,3 @@ https://javascript.info/event-delegation
 
 // use a type specific method on a non-type. Also good for polyfills
 https://gomakethings.com/what-the-hell-is-the-call-method-and-when-should-you-use-it/
-
-//high performant web fonts
-http://bdadam.com/blog/loading-webfonts-with-high-performance.html
-https://medium.freecodecamp.org/web-fonts-in-2018-f191a48367e8
