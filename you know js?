@@ -3,3 +3,6 @@ https://javascript.info/event-delegation
 
 // use a type specific method on a non-type. Also good for polyfills
 https://gomakethings.com/what-the-hell-is-the-call-method-and-when-should-you-use-it/
+
+// a function within a loop? we must preserve the scope with an IIFE or pull that logic into its own function declaration
+http://www.albertgao.xyz/2016/08/25/why-not-making-functions-within-a-loop-in-javascript/
