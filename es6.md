@@ -35,3 +35,18 @@ function add(...args) {
 ```
 add(1,2,4); // 7
 add(1)(2)(4); // 7
+
+
+```
+let options = {
+  title: "Menu",
+  height: 200,
+  width: 100
+};
+
+let {title, ...rest} = options;
+
+// now title="Menu", rest={height: 200, width: 100}
+alert(rest.height);  // 200
+alert(rest.width);   // 100
+```
