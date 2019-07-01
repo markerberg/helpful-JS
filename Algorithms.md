@@ -93,3 +93,37 @@ function mySet() {
                              .concat(collection.filter(y => !otherSet.includes(y)));
   }
 ```
+
+# Data structure- Queue
+```function priorityQueue() {
+  var collection = [];
+}
+
+priorityQueue.prototype.printCollection = () => {
+    console.log(this.collection);
+  };
+  
+  // add to the queue based on the priority we assign
+  priorityQueue.prototype.enqueue = (el) => {
+    if(this.collection.length < 1) {
+      this.collection.push(el);
+    } else {
+      // if its filled, push in the value based on priority
+      for (var i=0; i<this.collection.length; i++) {
+        var added=false;
+        // check if the priority is more(less than) other elements
+        if(el[1] < this.collection[i][1]) {
+          this.collection.splice(i,0,el);
+          added=true;
+          break;
+        }
+      }
+      if (!added) {
+        this.collection.push(el);
+      }
+    }
+  };
+  
+  priorityQueue.prototype.dequeue = () => {
+    this.collection.pop();
+  }```
