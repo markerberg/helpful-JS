@@ -126,4 +126,40 @@ priorityQueue.prototype.printCollection = () => {
   
   priorityQueue.prototype.dequeue = () => {
     this.collection.pop();
-  }```
+  }
+ ```
+
+# Data-structure Map
+```
+function myMap() {
+  var collection = {};
+  var count=0;
+
+  // set
+  this.set = (key, value) => {
+    this.collection[key] = value;
+  }
+  // has
+  this.has = (key) => {
+    return (key in this.collection);
+  }
+  // get
+  this.get = (key) => {
+    return (key in this.collection) ? this.collection[key] : null;
+  }
+  // delete
+  this.delete = (key) => {
+    if (key in this.collection) {
+      delete collection[key];
+    }
+  }
+  // values
+  this.values = (key) => {
+    var results = new Array();
+    for(let key of Object.keys(this.collection)) {
+      results.push(this.collection[key]);
+    }
+    return (results.length > 0) ? results : '0';
+  }
+}
+```
