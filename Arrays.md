@@ -8,9 +8,14 @@ fruitarray[3] = ['raspberry','raspberry','raspberry','kiwi', 'apricot'];
 var flattenedFruits = fruitarray.concat.apply([], fruitarray);
 
 ### remove duplicates so only unique values are in array
-`var nonDuplicatedFruits = flattenedFruits.reduce((result,nextItem)=>result.includes(nextItem) ? result : result.concat(nextItem),[]);`
+```
+var nonDuplicatedFruits = flattenedFruits.reduce((result,nextItem)=>result.includes(nextItem) ? result : result.concat(nextItem),[]);
+```
+
 can also remove duplicates with Set
-`var nonDuplicatedFruits = Array.from(new Set(flattenedFruits));   OR    [...new Set(flattenedFruits)]`
+```
+var nonDuplicatedFruits = Array.from(new Set(flattenedFruits));   OR    [...new Set(flattenedFruits)]
+```
 
 ### push all duplicated fruits into a nested object where the key is the fruit and the value is an array of the duplicated fruits
 var formattedFruits = flattenedFruits.reduce((allFruits, fruit) => {
