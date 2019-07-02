@@ -95,7 +95,8 @@ function mySet() {
 ```
 
 # Data structure- Queue
-```function priorityQueue() {
+```
+function priorityQueue() {
   var collection = [];
 }
 
