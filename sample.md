@@ -27,9 +27,7 @@ const str = "hello";
 const chars = {};
 
 for (let x of str) {
-  for (let x of str) {
-    chars[x] = chars[x] + 1 || 1;
-  }
+  chars[x] = chars[x] + 1 || 1;
 }
 
 console.log(chars);
