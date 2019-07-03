@@ -1,14 +1,4 @@
 # Data structure- stack
-### Palidrome
-```
-var word = 'racecar',
-  revWord;
-  
-revWord = [...word].reverse().join('');
-word === revWord ? 'Palidrome' : 'not';
-```
-
-### Make your own stack
 ```
 var Stack = function() {
   this.count = 0;
