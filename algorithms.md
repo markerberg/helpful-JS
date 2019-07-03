@@ -9,10 +9,21 @@ function reverseString(value) {
 function palindrome(str) {
   return [...str].every((x, i) => {
     // check if the value is the same as the value on the other end of the array
-    return x === str[str.length - 1 - i]; // or use reverseString() from above
+    return x === str[str.length - 1 - i];
   })
 }
 ```
+### palidrome 2
+```
+(
+var word = 'racecar',
+  revWord;
+
+revWord = [...word].reverse().join('');
+return word === revWord ? 'Palidrome' : 'not';
+)();
+```
+
 ### reverse int
 ```
 function reverseInt(y) {
