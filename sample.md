@@ -21,13 +21,14 @@ function reverseInt(y) {
 }
 ```
 
-### character map..key is the letter, value is the amount of times they appear in string
+### create character map and max chars
 ```
 var str = "he3llllo0ooo0o",
   chars = {},
   max = 0,
   maxChar;
 
+// create character map with key as letters, and values as amount of times those letters appear
 for (let x of str) {
   chars[x] = chars[x] + 1 || 1;
 }
