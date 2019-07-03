@@ -23,12 +23,20 @@ function reverseInt(y) {
 
 ### character map..key is the letter, value is the amount of times they appear in string
 ```
-const str = "hello";
-const chars = {};
+var str = "he3llllo0ooo0o",
+  chars = {},
+  max = 0,
+  maxChar;
 
 for (let x of str) {
   chars[x] = chars[x] + 1 || 1;
 }
 
-console.log(chars);
+for (let [k, v] of Object.entries(chars)) {
+  if( v > max) {
+    max = v;
+    maxChar = k;
+  }
+}
+console.log(`${maxChar} shows up ${max} times`);
 ```
