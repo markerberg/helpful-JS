@@ -68,3 +68,21 @@ function FizzBuzz(n) {
   }
 }
 ```
+
+### array chunk
+```
+function chunk(array, size) {
+  let chunked = [],
+    index = 0;
+    
+  while (index < array.length) {
+    chunked.push(array.slice(index, index + size));
+    index += size;
+  }
+  
+  return chunked;
+    
+}
+
+chunk([1,2,3,4,5,6],4);
+```
