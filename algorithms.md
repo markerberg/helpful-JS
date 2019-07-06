@@ -86,3 +86,64 @@ function chunk(array, size) {
 
 chunk([1,2,3,4,5,6],4);
 ```
+
+### Anagram with charMap
+```
+function anagram(a, b) {
+  var aMap = buildCharMap(a),
+      bMap = buildCharMap(b);
+      
+  // check for equality before looping
+  if (a.length !== b.length) {
+    return false;
+  }
+  // compare a to b
+  for (let i in aMap) {
+    // if an aMap value of a key isnt the same as bMap, false
+    if (aMap[i] !== bMap[i]) {
+      return false;
+    }
+  }
+  
+  return true;
+}
+
+console.log(anagram('cat', 'act'));
+  
+function buildCharMap(str) {
+  var newCharMap = {};
+  
+  // build Map
+  for (let i of str.replace(/[^\w]/g, '').toLowerCase()) {
+    newCharMap[i] = newCharMap[i] + 1 || 1;
+  }
+  
+  return newCharMap;
+}
+```
+
+### Anagram without loops!
+```
+function anagram(arrayA, arrayB) {
+  return cleanString(arrayA) === cleanString(arrayB);
+}
+
+function cleanString(str) {
+  return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+}
+```
+
+### Capitalize first letter of words
+```
+function capitalize(str) {
+  let words = [];
+  
+  words = str.split(' ').map(word => {
+    return word[0].toUpperCase() + word.slice(1);
+  });
+  // can also capitalize if left character is a space
+  // if(word[index - 1] === ' '){}
+  
+  return words.join(' ');
+}
+```
