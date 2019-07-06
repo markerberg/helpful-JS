@@ -141,9 +141,24 @@ function capitalize(str) {
   words = str.split(' ').map(word => {
     return word[0].toUpperCase() + word.slice(1);
   });
-  // can also capitalize if left character is a space
-  // if(word[index - 1] === ' '){}
   
   return words.join(' ');
+}
+```
+
+### Capitalize first letter with loops
+```
+function capitalize(str) {
+  let result = str[0].toUpperCase();
+  
+  for (var i=1; i<str.length; i++){
+    if (str[i-1] === ' ') {
+      result += str[i].toUpperCase();
+    } else {
+      result += str[i];
+    }
+  }
+  
+  return result
 }
 ```
