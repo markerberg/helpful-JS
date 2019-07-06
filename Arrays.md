@@ -30,6 +30,6 @@ var formattedFruits = flattenedFruits.reduce((allFruits, fruit) => {
 }, {});
 ```
 
-console.log(flattenedFruits);
-console.log(nonDuplicatedFruits);
-console.log(formattedFruits);
+`console.log(flattenedFruits);`
+`console.log(nonDuplicatedFruits);`
+`console.log(formattedFruits);`
