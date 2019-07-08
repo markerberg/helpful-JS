@@ -236,4 +236,22 @@ function fib(n) {
 }
 // this runtime will be exponential as every increase in n dramatically increases number of calls
 // to increase runtime, we can use memoization...we cache the results of each func call
+
+function memoize(fn) {
+  const cache = {};
+  return function(...args) {
+    // search for a cached value
+    if (cache[args]) {
+      return cache[args];
+    }
+    
+    // if not found, run code and cache result before returning
+    const result = fn.apply(this, args);
+    cache[args] = result;
+    
+    return result;
+  };
+}
+
+fib = memoize(fib);
 ```
