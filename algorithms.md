@@ -162,7 +162,7 @@ function capitalize(str) {
   return result
 }
 ```
-### stairs
+### print stairs
 ```
 function steps(n) {
   for (let row = 0; row < n; row++) {
@@ -180,7 +180,7 @@ function steps(n) {
   }
 }
 ```
-### pyramid
+### print pyramid
 ```
 function pyramid(n) {
   const midpoint = Math.floor((2 * n - 1) / 2);
@@ -199,4 +199,41 @@ function pyramid(n) {
     console.log(level);
   }
 }
+```
+
+### find vowels
+```
+function checkForVowel(str) {
+  var count = 0;
+  const vowels = ['a','e','i','o','u'];
+  
+  for (let char of str.toLowerCase()) {
+    if (vowels.includes(char)) {
+      count++;
+    }
+  }
+  
+  return count;
+}
+
+OR
+
+function checkForVowel(str) {
+  const matches = str.match(/[aeiou]/gi);
+  
+  return matches ? matches.length : 0;
+}
+```
+
+### fibonacci recursive
+```
+function fib(n) {
+  if (n < 2) {
+    return n;
+  }
+
+  return fib(n - 1) + fib(n - 2);
+}
+// this runtime will be exponential as every increase in n dramatically increases number of calls
+// to increase runtime, we can use memoization...we cache the results of each func call
 ```
