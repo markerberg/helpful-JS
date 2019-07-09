@@ -193,3 +193,47 @@ function myMap() {
   }
 }
 ```
+
+### create a queue using stacks
+```
+// we have two stacks and we pop over stacks and push those values between eachother
+// we keep doing this so we mimic the FIFO style of queues
+class QueueFromStacks () {
+  constructor() {
+    this.first = new Stack();
+    this.second = new Stack();
+  }
+  
+  add(record) {
+    this.first.push(record);
+  }
+  
+  remove() {
+    while (this.first.peek()) {
+      this.second.push(this.first.pop());
+    }
+    
+    const record = this.second.pop();
+    
+    while (this.second.peek()) {
+      this.first.push(this.second.pop());
+    }
+    
+    return record;
+  }
+  
+  peek() {
+    while (this.first.peek()) {
+      this.second.push(this.first.pop());
+    }
+    
+    const record = this.second.peek();
+    
+    while (this.second.peek()) {
+      this.first.push(this.second.pop());
+    }
+    
+    return record;
+  }
+}
+```
