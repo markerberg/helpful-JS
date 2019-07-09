@@ -27,6 +27,26 @@ var mark = new Stack();
 mark.push(85)
 mark.pop();
 ```
+
+```
+class Stack() {
+  constructor() {
+    this.data = [];
+  }
+  
+  push(record) {
+    this.data.push(record);
+  }
+  
+  pop() {
+    return this.data.pop();
+  }
+  
+  peek() {
+    return this.data[this.data.length - 1];
+  }
+}
+```
 # Data structure - Set
 ```
 function mySet() {
