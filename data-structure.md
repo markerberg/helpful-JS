@@ -237,3 +237,5 @@ class QueueFromStacks () {
   }
 }
 ```
+### Linked List
+https://www.udemy.com/coding-interview-bootcamp-algorithms-and-data-structure/learn/lecture/8547074#overview
