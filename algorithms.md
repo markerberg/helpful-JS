@@ -227,7 +227,7 @@ function checkForVowel(str) {
 
 ### fibonacci recursive
 ```
-function slowFib(n) {
+function fib(n) {
   if (n < 2) {
     return n;
   }
@@ -253,6 +253,6 @@ function memoize(fn) {
   };
 }
 
-const fib = memoize(slowFib);
+const fib = memoize(fib);
 fib(15) // returns the memoized version of fibonacci recursive
 ```
