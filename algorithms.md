@@ -256,3 +256,35 @@ function memoize(fn) {
 const fib = memoize(fib);
 fib(15) // returns the memoized version of fibonacci recursive
 ```
+
+### build an event system
+```
+class Events {
+  constructor() {
+    this.events = {};
+  }
+
+  on(eventName, callback) {
+    if (this.events[eventName]) {
+      // add cb to callback with same key
+      this.events[eventName].push(callback);
+    } else {
+      // or make a new key if it dont exist yet
+      this.events[eventName] = [callback];
+    }
+  }
+
+  trigger(eventName) {
+    if (this.events[eventName]) {
+      // trigger all callbacks for the event
+      for (let cb of this.events[eventName]) {
+        cb();
+      }
+    }
+  }
+
+  off(eventName) {
+    delete this.events[eventName];
+  }
+}
+```
