@@ -185,7 +185,7 @@ class Linkedlist {
 Find the middle point of a linkedlist without using a counter or retreiving the size of the list. Only iterate.
 But If even number of elements, return node at the end of first half of list
 ```
-// use two vars. slow travels 1 space and the fast travels twice as fast. When the fast reaches the end, slow must be at the middle of the list since it travels half as fast as fast
+// use two vars. slow travels 1 space and the fast travels twice as fast. When the fast reaches the end(bc next is equal to null and breaks the loop), slow is at the middle of the list since it travels half as fast as fast does
 
 function midpoint(list) {
   // both vars start at the same point but move at different speeds
@@ -200,5 +200,46 @@ function midpoint(list) {
   // since slow moves half the speed of fast, when fast determines the end of list is coming up
   // we just need to return the value of slow, to know the middle. Since its half of what fast is
   return slow; 
+}
+```
+Given a linked list, return true if its circular(meaning theres no tail)
+```
+// use same approach of using two seperate vars starting at same position that will move differently. Slow which moves 1. Fast which moves 2. Now we loop through and move each vars along. If we get to a point where Slow === Fast, its a circular list because the two vars (moving at seperate speeds) point to the same node.
+function circular(list) {
+  let slow = list.getFirst();
+  let fast = list.getFirst();
+
+  while (fast.next && fast.next.next) { //test for circular list. nothing should point to null
+    slow = slow.next;
+    fast = fast.next.next;
+
+    if (slow === fast) { // if slow is same object in mem as fast, its a cirular list
+      return true;
+    } 
+  }
+  return fasle; // if our next values return null...we dont have a circular list
+}
+```
+Given a linked list and an integer, n. return el that is n spaces from last node in list. Dont use size method
+```
+// use two seperate vars, slow and fast. Point them at first node. Move fast over n positions and then move both fast and slow over 1 position each until fast is at the end. When fast is at the end, slow will be n positions from the end as we wanted
+
+function fromLast(list, n) {
+  let slow = list.getFirst();
+  let fast = list.getFirst();
+
+  while(n>0) { // we move the fast var over n nodes
+    fast = fast.next;
+    n--;
+  }
+
+  while(fast.next) { // while the fast var hasn't reached the end of list, move both vars over 1 space togehter
+    slow = slow.next; // we set slow equal to next node
+    fast = fast.next; // set fast equal to next node
+  }
+  // when we break out of the loop bc fast is at the end of the list,
+  // slow will be at n positions from the end. Bc we first moved fast over n positions
+  // then we moved fast and slow over at the same pace until we got fast to be at the end
+  return slow;
 }
 ```
