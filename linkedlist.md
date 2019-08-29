@@ -180,3 +180,25 @@ class Linkedlist {
 
 }
 ```
+
+## LinkedList Interview Question
+Find the middle point of a linkedlist without using a counter or retreiving the size of the list. Only iterate.
+But If even number of elements, return node at the end of first half of list
+```
+// use two vars. slow travels 1 space and the fast travels twice as fast. When the fast reaches the end, slow must be at the middle of the list since it travels half as fast as fast
+
+function midpoint(list) {
+  // both vars start at the same point but move at different speeds
+  var slow = list.getFirst();
+  var fast = list.getFirst();
+
+  while(fast.next && fast.next.next) {
+    slow = slow.next; // move slow over 1 space to the next variable
+    fast = fast.next.next // move fast over twice as fast as slow moves
+  }
+
+  // since slow moves half the speed of fast, when fast determines the end of list is coming up
+  // we just need to return the value of slow, to know the middle. Since its half of what fast is
+  return slow; 
+}
+```
