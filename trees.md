@@ -113,4 +113,26 @@ class Node {
 
 // find if binary search tree contains target. If target number is smaller than node, that target most likely exists on the left side
 
+
+function validate(node, min=null, max=null) {
+  if (max !== null && node.data > max) { //current node shouldn't be grater than max
+    return false;
+  } 
+
+  if (min !== null && node.data < min) {
+    return false;
+  }
+
+// if node on left and calling validate (using node on the left) isn't true, return false
+  if (node.left && !validate(node.left, min, node.data)) {
+    return false;
+  }
+
+  if (node.right && !validate(node.right, node.data, max)) {
+    return false;
+  }
+
+  return true;
+}
+
 ```
