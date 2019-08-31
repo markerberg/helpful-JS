@@ -72,7 +72,7 @@ function levelWidth(node) {
 }
 ```
 
-#Binary Search Tree
+### Binary Search Tree
 ```
 class Node {
   constructor(data) {
