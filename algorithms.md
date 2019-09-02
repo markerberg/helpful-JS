@@ -288,3 +288,24 @@ class Events {
   }
 }
 ```
+
+### sumZero
+```
+function sumZero(arr) {
+  let left = 0,
+    right = arr.length - 1;
+  
+  // we have our pointers set to opposite ends. We now want to make
+  // them move to the middle of the sorted arr to check for value
+  while (left < right) {
+    let sum = arr[left] + arr[right];
+    if (sum === 0) {
+      return [arr[left], arr[right]];
+    } else if (sum > 0) { // sum pos? right too big, move right pointer down 1 space
+      right--;
+    } else {
+      left++; // sum negative? left too big, move left 1 space up
+    }
+  }
+}
+```
