@@ -309,3 +309,14 @@ function sumZero(arr) {
   }
 }
 ```
+
+### count Unique values
+```
+function countInique (arr) {
+  var counts = {};
+  for (let i = 0; i < arr.length; i++) {
+    counts[arr[i]] = counts[arr[i]] + 1 || 1;
+  }
+  return Object.keys(counts).length;
+}
+```
