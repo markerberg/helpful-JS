@@ -320,3 +320,30 @@ function countInique (arr) {
   return Object.keys(counts).length;
 }
 ```
+
+### find max sum for an array of n values
+```
+// loop through array once, calc the maxSum values
+// loop through initial subset and find tempSum
+// loop rest of arr starting at subset end and calc new sum
+// compare newSum and tempSum to find max
+// keep looping through each value to find the max sum
+function maxSubarraySum(arr, num) {
+  let maxSum = 0,
+    tempSum = 0;
+
+  // loop based on num length and calc sum as max sum
+  for(let i=0;i<num;i++) {
+    maxSum += arr[i];
+  } 
+  tempSum = maxSum;
+  for(let i=num;i<arr.length;i++) {
+  // we have a subset of n values. Move that subset over
+  // add next value, subtract prev first value (since we need to keep the length the same)
+  // compare that sum to the maxSum and set appropriately
+    tempSum = tempSum - arr[i-num] + arr[i]
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
+}
+```
