@@ -51,3 +51,27 @@ function isPalindrome(str){
     return false;
 }
 ```
+
+### check if the callback works on any arr item
+```
+function someRecursive(array, callback) {
+    if (array.length === 0) return false;
+    if (callback(array[0])) return true;
+    // take out first item and call again to check
+    return someRecursive(array.slice(1),callback);
+}
+```
+
+### return sum of all even numbers in an object (the obj might be nested)
+```
+function nestedEvenSum (obj, sum=0) {
+    for (var key in obj) {
+        if (typeof obj[key] === 'object'){
+            sum += nestedEvenSum(obj[key]);
+        } else if (typeof obj[key] === 'number' && obj[key] % 2 === 0){
+            sum += obj[key];
+        }
+    }
+    return sum;
+}
+```
