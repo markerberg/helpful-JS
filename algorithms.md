@@ -369,7 +369,7 @@ function findLongestSubstring(str) {
 }
 ```
 
-### divide and conquer, find value in sorted arr
+### divide and conquer, find value in sorted arr using binary search
 ```
 // divide and conquer, split large sorter arr into subset to find a value
 function search(arr, val) {
@@ -418,7 +418,7 @@ function areThereDuplicates() {
 ### find values in sorted arr
 ```
 // find pair of values where there avg is equal to target
-// we can use divide and conquer
+// we can use divide and conquer using binary search
 function averagePair(arr, num){
   let start = 0
   let end = arr.length-1;
