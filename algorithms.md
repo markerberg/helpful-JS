@@ -348,6 +348,27 @@ function maxSubarraySum(arr, num) {
 }
 ```
 
+### find longest distinct substring
+```
+function findLongestSubstring(str) {
+  let longest = 0;
+  let seen = {};
+  let start = 0;
+ 
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if (seen[char]) {
+      start = Math.max(start, seen[char]);
+    }
+    // index - beginning of substring + 1 (to include current in count)
+    longest = Math.max(longest, i - start + 1);
+    // store the index of the next char so as to not double count
+    seen[char] = i + 1;
+  }
+  return longest;
+}
+```
+
 ### divide and conquer, find value in sorted arr
 ```
 // divide and conquer, split large sorter arr into subset to find a value
@@ -391,5 +412,38 @@ OR USE A SET
 
 function areThereDuplicates() {
   return new Set(arguments).size !== arguments.length;
+}
+```
+
+### find values in sorted arr
+```
+// find pair of values where there avg is equal to target
+// we can use divide and conquer
+function averagePair(arr, num){
+  let start = 0
+  let end = arr.length-1;
+  while(start < end){
+    let avg = (arr[start]+arr[end]) / 2;
+    if(avg === num) return true;
+    else if(avg < num) start++
+    else end--
+  }
+  return false;
+}
+```
+
+### check for substring
+```
+// check is the char of one arg is a substr of the other arg
+function isSubsequence(str1, str2) {
+  var i = 0;
+  var j = 0;
+  if (!str1) return true;
+  while (j < str2.length) {
+    if (str2[j] === str1[i]) i++;
+    if (i === str1.length) return true;
+    j++;
+  }
+  return false;
 }
 ```
