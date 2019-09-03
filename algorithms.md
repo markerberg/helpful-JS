@@ -347,3 +347,29 @@ function maxSubarraySum(arr, num) {
   return maxSum;
 }
 ```
+
+### divide and conquer, find value in sorted arr
+```
+// divide and conquer, split large sorter arr into subset to find a value
+function search(arr, val) {
+  let min = 0,
+    max = arr.length - 1;
+
+  while(min <= max) { // run this until we reach the end or arr
+    // calculate middle point
+    let middle = Math.floor((min + max) / 2),
+      currentElement = arr[middle];
+
+    // if val is on the right side of midpoint, look at values to the right of midpoint
+    if(arr[middle] < val) { 
+      min = middle + 1;
+    // if val is on the left side of midpoint, look at values to the left of midpoint
+    } else if (arr[middle] > val) {
+      min = middle - 1;
+    } else {
+      return middle;
+    }
+  }
+  return -1;
+}
+```
