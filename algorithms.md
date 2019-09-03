@@ -386,7 +386,7 @@ function search(arr, val) {
       min = middle + 1;
     // if val is on the left side of midpoint, look at values to the left of midpoint
     } else if (arr[middle] > val) {
-      min = middle - 1;
+      max = middle - 1;
     } else {
       return middle;
     }
