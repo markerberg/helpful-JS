@@ -33,3 +33,11 @@ var formattedFruits = flattenedFruits.reduce((allFruits, fruit) => {
 `console.log(flattenedFruits);`
 `console.log(nonDuplicatedFruits);`
 `console.log(formattedFruits);`
+
+### use .sort() on array of numbers
+```
+[6,7,22,12,334,56,88,9,1,12,41,78,55,2,95,23].sort((num1, num2) => {
+  return num1 - num2; // for low to high
+  // return num2 - num1 // for high to low
+});
+```
