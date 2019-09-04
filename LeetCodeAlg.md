@@ -1,4 +1,4 @@
-## Two Sum
+## Two Sum- using hash map
 ```
 /** Idea is to iterate over our array once and use a hash to store all the values we've already gone over. 
 Each time we iterate we push our value into a hash so we know that we already looped through this item in our array.
@@ -24,4 +24,45 @@ var twoSum = function(nums, target) {
     return sums;
 };
 
+```
+
+## longest palindrome substring in string- using 
+```
+/** 
+Idea is to loop through each item and call a function on them
+the function will check its adjacent values and see if they are equal to eachother
+if equal, we start to widen out window and look for more start&end index that are the same
+**/
+const longestPalindrome = (s) => {
+  if (!s || s.length <= 1) {
+    return s;
+  }
+  // temp assign a long value to compare to
+  let longest = s.substring(0,1);
+
+  for(let i=0; i < s.length; i++){
+    // check the elements around each value for palindrone
+    let temp = expand(s, i, i);
+    if (temp.length > longest.length) {
+      longest = temp;
+    }
+    // check for palindrones where the middle is the same char repeated 2x
+    temp = expand(s, i ,i+1);
+    if (temp.length > longest.length) {
+      longest = temp;
+    }
+  }
+  return longest;
+}
+
+const expand = (str, start, end) => {
+  // create a window of text to look at. Keeps growing if the items are equal/palindrone
+  while (start >= 0 && end <= str.length -1 && str[start] === str[end]) {
+    start--;
+    end++;
+  }
+  return str.substring(start+1, end);
+}
+
+console.log(longestPalindrome('banana'));
 ```
