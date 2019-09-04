@@ -66,3 +66,20 @@ const expand = (str, start, end) => {
 
 console.log(longestPalindrome('banana'));
 ```
+## find the maxSum. find continuous subarray with the largest sum and return value
+we could also use divide and conquer here
+```
+var maxSubArray = function(n) {
+  let currentSum = 0;
+  let maxSum = 0;
+  // loop through and track the current sum compared to finalsum
+  for (let i=0; i < n.length; i++) {
+    let currentNum = n[i];
+
+    currentSum = Math.max((currentSum + currentNum), 0);
+    maxSum = Math.max(currentSum, maxSum);
+  }
+
+  return maxSum;
+}
+```
