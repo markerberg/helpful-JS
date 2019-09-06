@@ -74,7 +74,7 @@ function mergeSort(arr) {
 }
  ```
  
- #### Another merge sort. we first make our merge() to combine and sort two arrays
+ #### Another merge sort. Split your array in half. Recursively merge sort the left and right sub-arrays. Then, merge them together (linear time) to get the full sorted array.
  ```
  //  Step 1
  function merge(arr1, arr2) {
@@ -111,7 +111,7 @@ function mergeSort(arr) {
 }
  ```
 
-## Quicksort - we grab a value and compare it, small nums go left. bigger nums go right. Repeat this process
+## Quicksort - Pick a pivot from the array and partition the array into sub-arrays. Everything in the left sub-array is less than the pivot. Everything in the right sub-array is greater than the pivot. Recursively sort the left and right sub-arrays.
 ```
 // loop, if el less than pivot, swap it to left
 // each loop that has value < pivot, increment counter
