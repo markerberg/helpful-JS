@@ -110,3 +110,44 @@ function mergeSort(arr) {
   return merge(left, right);
 }
  ```
+
+## Quicksort - we grab a value and compare it, small nums go left. bigger nums go right. Repeat this process
+```
+// loop, if el less than pivot, swap it to left
+// each loop that has value < pivot, increment counter
+// we set the pivot to index[counter] so it right side of all lesser values
+
+function swap(arr, i, j) {
+  let temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
+
+function pivot (arr, start=0, end=arr.length+1) {
+  var pivot = arr[start];
+  var swapIndex = 0; // keep track of the index to return
+
+  // start loop after current value bc we dont need to compare them
+  for (var i = 1; i < arr.length; i++) {
+    if (pivot > arr[i]) { // check if pivot greater than each item and increment count
+      swapIndex++;
+      // whn we find item less than pivot, we increment swapIndex. and move
+      // its index to our swapIndex value
+      swap(arr, swapIndex, i);
+    }
+  }
+  // at the end we swap start index with swapindex. so we put our number after "n" smaller indexes
+  swap(arr, start, swapIndex); 
+}
+
+function quickSort(arr, left = 0, right = arr.length-1) {
+  if (left < right) { // run loop until we break down to one arr length
+    let pivotIndex = pivot(arr, left, right);
+    // left
+    quickSort(arr, left, pivotIndex-1);
+    // right
+    quickSort(arr, pivotIndex+1, right);
+  }
+  return arr;
+}
+```
