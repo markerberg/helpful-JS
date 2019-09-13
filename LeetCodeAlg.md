@@ -112,8 +112,9 @@ function lengthOfLongestSubstring(s) {
 
 console.log(lengthOfLongestSubstring('abcabcbb')); // 3 for 'abc'
 console.log(lengthOfLongestSubstring('bbb')); // 1 for 'b'
+```
 
-### Valid parenthesis with a stack solution (lifo)
+## Valid parenthesis with a stack solution (lifo)
 ```
 const validParren = s => {
   let stack = [],
