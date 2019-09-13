@@ -83,3 +83,33 @@ var maxSubArray = function(n) {
   return maxSum;
 }
 ```
+
+## length of longest unique substring
+```
+/**
+ * idea is to have a window of unique values. We start at 0, track each char in a map and loop through
+ * the array. If we find a iteratee thats already in a map...we know its a duplicate so we calc our current
+ * length without the duplicated value to check for maxlength. we also UPDATE the index of the duplicated
+ * value in our map to reflect the latest index of the char 
+ */
+function lengthOfLongestSubstring(s) {
+  let charMap = {},
+    maxLength = 0,
+    windowStart = 0;
+   
+  for (let i = 0; i < s.length; i++ ) {
+    let endChar = s[i];
+
+  if (charMap[endChar] >= windowStart) {
+    windowStart = charMap[endChar] + 1;
+  }
+
+  charMap[endChar] = i;
+  maxLength = Math.max(maxLength, i - windowStart + 1);
+  }
+  return maxLength;
+}
+
+console.log(lengthOfLongestSubstring('abcabcbb')); // 3 for 'abc'
+console.log(lengthOfLongestSubstring('bbb')); // 1 for 'b'
+```
