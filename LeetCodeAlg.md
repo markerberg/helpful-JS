@@ -135,3 +135,27 @@ const validParren = s => {
 
 console.log(validParren('()[]{}'));
 ```
+## group together anagrams
+```
+/**
+ * we make an obj where key is anagram and val is the words. We need to
+ * group together all words under the same anangram
+ */
+function groupAnagram(str) {
+  let grouped = {};
+
+  for (let i = 0; i < str.length; i++) {
+    let word = str[i],
+      key = word.split('').sort().join('');
+
+      if(!grouped[key]) {
+        grouped[key] = []
+      };
+
+      grouped[key].push(word);
+  }
+  return Object.values(grouped);
+}
+
+console.log(groupAnagram(['eat','tea','tan','ate']));
+```
