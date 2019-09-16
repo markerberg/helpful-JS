@@ -159,3 +159,28 @@ function groupAnagram(str) {
 
 console.log(groupAnagram(['eat','tea','tan','ate']));
 ```
+### isPalindrome
+```
+// O(n) time complexity
+// think of palindrome as words where each half mirrors itself
+// we create left and right pointer, left pointer starts at beginning.
+// right pointer starts at end. Compare them for palindrome
+function isPalindrome(s) {
+  // sanitize
+  s = s.toLowerCase().replace(/[\W_]/g, ''); //rm all alphanumeric nonchars 
+  
+  let left = 0;
+  let right = s.length - 1;
+
+  while (left < right) {
+    if (s[left] !== s[right]) {
+      return false;
+    }
+
+    left++;
+    right--;
+  }
+
+  return true;
+}
+```
