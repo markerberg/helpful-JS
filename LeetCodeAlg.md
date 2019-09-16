@@ -184,3 +184,38 @@ function isPalindrome(s) {
   return true;
 }
 ```
+
+### anagram
+```
+// O(n) time complexity
+function isAnagram(s,t) {
+  if (s.length !== t.length) {
+    return false;
+  }
+
+  let sCharMap = {};
+
+  for(let i = 0; i < s.length; i++) {
+    let sChar = s[i];
+
+    sCharMap[sChar] = sCharMap[sChar] + 1 || 1;
+  }
+
+  for (let i = 0; i < t.length; i++) {
+    let tChar = t[i];
+
+    // if char in t isnt in s, return false
+    // ALSO we reduce the value by 1 everytime we find a matching char in s
+    // so if a t value is found but the s value is at 0 (meaning we've already covered all possible amounts of chars in s)
+    // then the 0 value will get reutned here and will return false
+    if (!sCharMap[tChar]) {
+      return false;
+    } else {
+      // we found a matching char, so rm one index from that value
+      // so we can tell that it was already accounted for in s
+      sCharMap[tChar]--;
+    }
+  }
+  return true;
+}
+```
