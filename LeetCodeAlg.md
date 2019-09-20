@@ -221,6 +221,7 @@ function isAnagram(s,t) {
 ```
 ### meeting rooms
 ```
+// O(N log N) time complexity
 // meeting rooms -> we need to check if any intervals intersect with eachother
 // put start and end time in two seperate sorted arrays
 // loop start arr and check if start arr (1 index ahead of current start) is
