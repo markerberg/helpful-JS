@@ -219,3 +219,33 @@ function isAnagram(s,t) {
   return true;
 }
 ```
+### meeting rooms
+```
+// meeting rooms -> we need to check if any intervals intersect with eachother
+// put start and end time in two seperate sorted arrays
+// loop start arr and check if start arr (1 index ahead of current start) is
+// less than the end arr (at the same index of start (not 1 ahead tho))
+// if its less, that means they intersect
+
+const canAttendMeeting = interval => {
+  const starts = [],
+    ends = [];
+
+  for (let i = 0; i < interval.length; i++) {
+    const subArray = interval[i];
+    starts.push(subArray[0]); // push beginning keys
+    ends.push(subArray[1]); // push eng values
+  }
+
+  // sort start and end from least to greatest
+  starts.sort((a,b) => a - b);
+  ends.sort((a,b) => a - b);
+
+  for (let i = 0; i < starts.length; i++) {
+    // if start at one index ahead is less than current end index
+    if (starts[i+1] < ends[i]) return false;
+  }
+
+  return true;
+}
+```
