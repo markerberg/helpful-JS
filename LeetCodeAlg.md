@@ -250,3 +250,23 @@ const canAttendMeeting = interval => {
   return true;
 }
 ```
+
+### contains duplicate 
+```
+// O(n) time complexity as we loop through every item in array
+const containsDuplicate = nums => {
+    // store the values we pass over in an obj bc obj has o(1) lookup time instead of the o(n) lookup time the array has
+    const visitedNums = {};
+
+    for (let i = 0; i < nums.length; i++) {
+        const num = nums[i];
+
+        if (visitedNums[num]) {
+            return true;
+        } else {
+            visitedNums[num] = true;
+        }
+    }
+    return false; // if true isn't returned, then its false
+}
+```
