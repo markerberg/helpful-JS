@@ -269,4 +269,5 @@ const containsDuplicate = nums => {
     }
     return false; // if true isn't returned, then its false
 }
+*** If we wanted to return same array without duplicates, just use a set OR store unique keys and call Object.keys on collection***
 ```
