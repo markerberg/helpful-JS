@@ -271,3 +271,50 @@ const containsDuplicate = nums => {
 }
 *** If we wanted to return same array without duplicates, just use a set OR store unique keys and call Object.keys on collection***
 ```
+### MaxArea
+```
+function maxArea(height) {
+  let maxArea = 0
+  let start = 0;
+  let end = height.length - 1;
+
+  while (start < end) {
+    // area is height x width
+    const currentArea = Math.min(height[start], height[end]) * (end - start);
+    maxArea = Math.max(currentArea, maxArea);
+
+    if (height[start] < height[end]) {
+      start++
+    } else {
+      end--
+    }
+  }
+
+  return maxArea;
+}
+
+console.log(maxArea([1,8,6,2,5,4,8,3,7]));
+```
+
+### maxProfit
+```
+// whats the best day to buy and sell stock for max profit
+// to get profit, we subtract number from smallest number
+// the greatest profit is the one we want
+// loop through once, for each number calculate the cheapest price and profit
+// compare the profits to pull out the biggest one
+let maxProfit = function(prices) {
+  let maxProfit = 0;
+  let cheapestPrice = prices[0];
+
+  for (let i = 0; i < prices.length; i++) {
+    const price = prices[i];
+    if (price < cheapestPrice) cheapestPrice = price;
+
+    const currentProfit = price - cheapestPrice;
+    maxProfit = Math.max(currentProfit, maxProfit);
+  }
+
+  return maxProfit;
+}
+```
