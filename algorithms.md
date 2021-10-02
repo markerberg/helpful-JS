@@ -447,3 +447,15 @@ function isSubsequence(str1, str2) {
   return false;
 }
 ```
+
+### check for dupe in an unsorted array
+```
+//since its unsorted, we cant use two pointers. we can push in a hashmap and check for vals > 2
+function checkForDupe(str) {
+  let hash = {};
+  [...str].forEach(x => hash[x] = hash[x]+1 || 1);
+  let isDupe = Object.values(hash).some((el) => el % 2 === 0);
+  
+  return isDupe;
+};
+```
